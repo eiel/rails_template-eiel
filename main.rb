@@ -23,10 +23,12 @@ gem_group :production do
     gem "puma"
     gem "rails_12factor"
   end
+  gem "newrelic_rpm"
 end
 
+create_file "Procfile", "web: bundle exec rails server -p $PORT"
+
 gem "slim-rails"
-gem "newrelic_rpm"
 
 run "rm README.rdoc"
 run "bundle install"
